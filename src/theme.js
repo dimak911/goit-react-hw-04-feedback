@@ -16,11 +16,11 @@ export const theme = {
     monospace: 'Menlo, monospace',
   },
   fontSizes: {
-    xs: '12px',
-    s: '14px',
-    m: '16px',
-    l: '32px',
-    xl: '64px',
+    xs: 12,
+    s: 14,
+    m: 16,
+    l: 32,
+    xl: 64,
   },
   fontWeights: {
     normal: 400,
