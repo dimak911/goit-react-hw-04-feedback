@@ -1,18 +1,33 @@
-import { StatHeading, StatList } from './Statistics.styled';
+import { StatList } from './Statistics.styled';
 
-export const Statistics = ({ currentState: { good, neutral, bad }, total }) => {
-  const totalReviews = total(good, neutral, bad);
-  const positivePercentage = Math.round((good / totalReviews) * 100);
+export const Statistics = ({
+  good,
+  neutral,
+  bad,
+  total,
+  positivePercentage,
+}) => {
+  const totalReviews = total([good, neutral, bad]);
+  const positivePercentageCount = positivePercentage(good, totalReviews);
+
   return (
     <>
-      <StatHeading>Statistics</StatHeading>
       <StatList>
-        <li>Good: {good}</li>
-        <li>Neutral: {neutral}</li>
-        <li>Bad: {bad}</li>
-        <li>Total: {totalReviews}</li>
         <li>
-          Positive Feedback: {positivePercentage ? positivePercentage : 0}%
+          Good: <span>{good}</span>
+        </li>
+        <li>
+          Neutral: <span>{neutral}</span>
+        </li>
+        <li>
+          Bad: <span>{bad}</span>
+        </li>
+        <li>
+          Total: <span>{totalReviews}</span>
+        </li>
+        <li>
+          Positive Feedback:{' '}
+          <span>{positivePercentageCount ? positivePercentageCount : 0}%</span>
         </li>
       </StatList>
     </>

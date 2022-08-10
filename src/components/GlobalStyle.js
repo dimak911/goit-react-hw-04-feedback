@@ -9,6 +9,8 @@ export const GlobalStyle = createGlobalStyle`
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: #282c34;
+    color: white;
   }
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -16,10 +18,18 @@ export const GlobalStyle = createGlobalStyle`
   }
   h1,h2,h3,h4,h5,h6,p {
     margin: 0;
+
   }
   ul {
     list-style: none;
     padding: 0;
     margin: 0;
+  }
+
+  h2 {
+      color: #61dafb;
+}
+  span {
+    color: #61dafb;
   }
 `;
