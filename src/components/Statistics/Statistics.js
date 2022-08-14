@@ -1,20 +1,13 @@
 import PropTypes from 'prop-types';
 import { StatList } from './Statistics.styled';
 
-export const Statistics = ({ good, neutral, bad }) => {
-  const totalReviews = countTotalFeedback([good, neutral, bad]);
-  const positivePercentageCount = countPositiveFeedbackPercentage(
-    good,
-    totalReviews
-  );
-  function countTotalFeedback(arrayOfNumbers) {
-    return arrayOfNumbers.reduce((acc, num) => acc + num, 0);
-  }
-
-  function countPositiveFeedbackPercentage(positiveValue, totalReviews) {
-    return Math.round((positiveValue / totalReviews) * 100);
-  }
-
+export const Statistics = ({
+  good,
+  neutral,
+  bad,
+  total,
+  positivePercentage,
+}) => {
   return (
     <>
       <StatList>
@@ -28,11 +21,11 @@ export const Statistics = ({ good, neutral, bad }) => {
           Bad: <span>{bad}</span>
         </li>
         <li>
-          Total: <span>{totalReviews}</span>
+          Total: <span>{total}</span>
         </li>
         <li>
           Positive Feedback:{' '}
-          <span>{positivePercentageCount ? positivePercentageCount : 0}%</span>
+          <span>{positivePercentage ? positivePercentage : 0}%</span>
         </li>
       </StatList>
     </>
@@ -43,4 +36,6 @@ Statistics.propTypes = {
   good: PropTypes.number.isRequired,
   neutral: PropTypes.number.isRequired,
   bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
 };
