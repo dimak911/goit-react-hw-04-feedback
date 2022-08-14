@@ -5,13 +5,11 @@ import { Btn } from './FeedbackOptions.styled';
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <Box as="ul" display="flex" gridGap={4}>
-      {options.map((option, idx) => {
-        const optionKey = Object.keys(option)[0];
-
+      {options.map(option => {
         return (
-          <li key={idx}>
-            <Btn name={optionKey} onClick={onLeaveFeedback}>
-              {optionKey.replace(/^./, optionKey[0].toUpperCase())}
+          <li key={option}>
+            <Btn name={option} onClick={onLeaveFeedback}>
+              {option.replace(/^./, option[0].toUpperCase())}
             </Btn>
           </li>
         );
@@ -21,6 +19,6 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
 };
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
-  onLeaveFeedback: PropTypes.elementType.isRequired,
+  options: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
 };
